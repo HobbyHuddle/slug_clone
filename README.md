@@ -8,7 +8,7 @@ Each mission can contain several levels and each level is chock full of enemies 
 Check out the wiki to learn how you can get involved!
 
 * [Team Wiki](https://github.com/HobbyHuddle/tools-and-docs/wiki)
-* [Discord](https://discord.gg/GHtTV2B7)
+* [Discord](https://discord.gg/s23nKJZ54u)
 * [Project Board](https://trello.com/b/KUWpmnO7/project-2-slug-clone)
 
 Every project from Hobby Huddle is open to all who want to join. The only rule is that you must see the project to the finish line if you decide to participate. 
