@@ -1,4 +1,6 @@
+using System;
 using DataModels;
+using InController.Scripts;
 using Items;
 using UnityEngine;
 
@@ -13,6 +15,13 @@ namespace Characters
         [Tooltip("The force with which the gun shoots and the bullets fly.")]
         public float firePower;
 
+        private Transform character;
+
+        private void Start()
+        {
+            character = GetComponentInParent<CharacterController2D>().transform;
+        }
+
         private void Update()
         {
             if (Input.GetButtonDown("Fire1"))
@@ -25,7 +34,8 @@ namespace Characters
         {
             // LESSON: What is Quaternion.identity? https://docs.unity3d.com/ScriptReference/Quaternion-identity.html
             var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
-            bullet.rigidbody2d.AddForce(Vector2.right * firePower);
+            var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
+            bullet.rigidbody2d.AddForce(direction * firePower);
         }
     }
 }
