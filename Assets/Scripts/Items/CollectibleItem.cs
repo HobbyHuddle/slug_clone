@@ -6,7 +6,7 @@ using Shared;
 namespace Items
 {
     [Serializable]
-    public class CollectItemEvent : UnityEvent {}
+    public class CollectItemEvent : UnityEvent<Item> {}
     public class CollectibleItem : MonoBehaviour
     {
         public Item item;
@@ -28,7 +28,7 @@ namespace Items
             if (col.gameObject.CompareTag("Player"))
             {
                 Debug.Log("Collectible picked.");
-                onItemPickup.Invoke();
+                onItemPickup.Invoke(item);
                 
                 PlaySfx();
                 Destroy(gameObject);
