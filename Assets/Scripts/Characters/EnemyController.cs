@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using InController.Scripts;
 using Shared;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Characters
 {
+    [Serializable]
+    public class AttackEvent : UnityEvent {}
+    
     public class EnemyController : CharacterController2D
     {
         public CharacterController2D target;
         public Patrol patrol;
+        public AttackEvent inAttackRange;
         
         public bool FaceLeft { get => IsFacingLeft; set => facingLeft = value; }
         public bool Walk { get => walking; set => walking = value; }
@@ -51,15 +57,16 @@ namespace Characters
             {
                 facingLeft = !(target.transform.position.x - rigidbody2d.position.x > 0);
             }
-            
+            ChangeFaceDirection();
             if (isHostile)
             {
                 if (InAttackRange)
                 {
                     chasing = false;
+                    inAttackRange.Invoke();
                     StartCoroutine(AttackOnCooldown());
                 }
-                else if (InAggroRange)
+                if (InAggroRange)
                 {
                     attacking = false;
                     chasing = true;
@@ -101,7 +108,7 @@ namespace Characters
             Gizmos.color = Color.green;
             Gizmos.DrawRay(transform.position, direction);
         }
-        
+
         private IEnumerator AttackOnCooldown()
         {
             attacking = true;
@@ -134,6 +141,11 @@ namespace Characters
                 patrol.atRight = true;
                 patrol.atLeft = false;
             }
+        }
+
+        public void Shoot()
+        {
+            
         }
     }
 }

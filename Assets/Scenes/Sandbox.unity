@@ -14402,6 +14402,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150788689}
     m_Modifications:
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: isNpc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: fireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: firePower
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: autoFireOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5242373262241007670, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: rangedWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 39f0f91b9bd7f6841961c8de41af7fd1, type: 2}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: projectileParent
+      value: 
+      objectReference: {fileID: 1511833027}
     - target: {fileID: 6848805006449976912, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -14410,13 +14438,77 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 608093170}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: attackRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: aggroDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561910508901483038}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561910508901483038}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AutoFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AutoFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Items.Gun, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Items.Gun, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: onAttackRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8068242288909066512, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8068242288909066512, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8068242288909066512, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14454,8 +14546,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9121254429277006250, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+--- !u!114 &1561910508901483038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+  m_PrefabInstance: {fileID: 1105159306096445747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7483aa0e849b74648a2bd5c6000099f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1903853734874877299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14601,6 +14708,9 @@ MonoBehaviour:
   projectileParent: {fileID: 1511833027}
   gunPoint: {fileID: 1903853734874877301}
   firePower: 2000
+  autoFireOn: 0
+  isNpc: 0
+  fireRate: 0
 --- !u!1001 &2595804764654421513
 PrefabInstance:
   m_ObjectHideFlags: 0
