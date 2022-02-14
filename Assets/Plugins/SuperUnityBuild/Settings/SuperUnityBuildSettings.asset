@@ -42,11 +42,11 @@ MonoBehaviour:
   architectures:
   - target: 5
     name: Windows x86
-    enabled: 1
+    enabled: 0
     binaryNameFormat: '{0}.exe'
   - target: 19
     name: Windows x64
-    enabled: 0
+    enabled: 1
     binaryNameFormat: '{0}.exe'
   variants:
   - variantName: Build Output
@@ -96,9 +96,9 @@ MonoBehaviour:
     - {fileID: -468586231004913006}
   _projectConfigurations:
     configSet:
-      _Buckets: 0300000002000000ffffffff00000000ffffffffffffffff04000000
-      _HashCodes: a728bd13b7d47a2971c7677683c47952a76761490000000000000000
-      _Next: ffffffffffffffffffffffff01000000ffffffff0000000000000000
+      _Buckets: 03000000ffffffffffffffff02000000ffffffffffffffff04000000
+      _HashCodes: a728bd13b7d47a2929c6d86083c47952a76761490000000000000000
+      _Next: ffffffffffffffff0000000001000000ffffffff0000000000000000
       _Count: 5
       _Version: 5
       _FreeList: -1
@@ -106,7 +106,7 @@ MonoBehaviour:
       _Keys:
       - Development/WebGL/WebGL
       - Development/WebGL
-      - Development/PC/Windows x86 (App)
+      - Development/PC/Windows x64 (App)
       - Development/PC
       - Development
       - 
@@ -117,11 +117,11 @@ MonoBehaviour:
       - enabled: 1
         childKeys:
         - Development/WebGL/WebGL
-      - enabled: 0
+      - enabled: 1
         childKeys: []
       - enabled: 1
         childKeys:
-        - Development/PC/Windows x86 (App)
+        - Development/PC/Windows x64 (App)
       - enabled: 1
         childKeys:
         - Development/WebGL
@@ -135,7 +135,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: 
+    selectedKeyChain: Development/PC/Windows x86 (App)
   _preBuildActions:
     buildActions: []
   _postBuildActions:
