@@ -2,36 +2,16 @@ using InController.Scripts;
 using Items;
 using UnityEngine;
 
-/// <summary>
-/// Arcturus Dev Note: 
-/// I know it says that critter behaviour is not required on the trello board (wasn't 100% sure why)...
-/// And that I might have done it anyway...
-/// But don't worry! It'll be super easy to remove it if need be (maybe?).
-/// It can be built into a base class later too if need be.
-/// </summary>
-
 namespace Characters
 {
-    public class Prisoner : MonoBehaviour
+    public class Prisoner : Critter
     {
         enum PrisonerBehaviour { Stuck, Roam, Rewarding, Escaping } // Defining enum.
         PrisonerBehaviour behaviour; // The basic prisoner behaviour that controls its actions.
 
-        [Header("Logic vars")]
-        [SerializeField] CharacterController2D controller;
-
-        [Header("Patrol Vars")]
-        // FIXME: Convert this script to use inheritance from a base critter class.
-        [SerializeField] Vector2[] patrolPoints; // The points that the critter will patrol between.
-        Vector2 myOrigin; // The character will patrol a certain distance from where it started. Also allows for patrolling characters to fall off ledges.
-        Vector2 myTarget; // The point the character will walk towards.
-        int patrolIndex = 0; // The index of the current patrol point.
-
-        private void Start()
+        protected override void Start()
         {
-            // Remember our origin.
-            myOrigin = new Vector2(transform.position.x, transform.position.y);
-            myTarget = new Vector2(patrolPoints[patrolIndex].x + myOrigin.x, 0f);
+            base.Start();
 
             behaviour = PrisonerBehaviour.Stuck;
             // Ping animator to play stuck animation in loop.
@@ -43,17 +23,7 @@ namespace Characters
             switch (behaviour)
             {
                 case PrisonerBehaviour.Roam:
-                    // Check if we are at the current target.
-                    // If we are then go to the next one.
-                    if (Vector2.Distance(new Vector2(transform.position.x, 0), myTarget) <= 0.5f)
-                    {
-                        patrolIndex++; // Step forwards in the array.
-
-                        if (patrolIndex >= patrolPoints.Length)
-                            patrolIndex = 0; // Loops back to the first index.
-                        
-                        myTarget = new Vector2(patrolPoints[patrolIndex].x + myOrigin.x, 0f);
-                    }
+                    PatrolUpdateLogic();
                     break;
 
                 case PrisonerBehaviour.Rewarding:
@@ -74,23 +44,11 @@ namespace Characters
             switch (behaviour)
             {
                 case PrisonerBehaviour.Roam:
-                    // Check if we are on the ground.
-                    // if we are then walk
-                    if (controller.IsGrounded) // FIXME: Doesn't actually seem to detect anything since always returns true here?????
-                    {
-                        // We can walk around.
-                        var direction = new Vector2(Mathf.Clamp(myTarget.x - transform.position.x, -1, 1), 0);
-                        //rb.velocity = direction;
-                        controller.Move(direction, false, false);
-                    }
-                    else
-                    {
-                        // Ping animator that it needs to play the falling anim.
-                        Debug.Log("Still falling.");
-                    }
+                    PatrolFixedUpdateLogic();
                     break;
 
                 case PrisonerBehaviour.Escaping:
+                    // TODO: Get the critter to run.
                     break;
             }
         }
