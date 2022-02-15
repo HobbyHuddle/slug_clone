@@ -8,7 +8,7 @@ namespace Characters
     public abstract class Critter : MonoBehaviour
     {
         [Header("Logic vars")]
-        [SerializeField] CharacterController2D controller;
+        [SerializeField] protected CharacterController2D controller;
 
         [Header("Patrol Vars")]
         [SerializeField] float[] patrolPoints; // The offsets from the critter's original position to move;
@@ -46,7 +46,6 @@ namespace Characters
             {
                 // We can walk around.
                 var direction = new Vector2(Mathf.Clamp(myTarget.x - transform.position.x, -1, 1), 0);
-                //rb.velocity = direction;
                 controller.Move(direction, false, false);
             }
             else

@@ -9,9 +9,19 @@ namespace Characters
         enum PrisonerBehaviour { Stuck, Roam, Rewarding, Escaping } // Defining enum.
         PrisonerBehaviour behaviour; // The basic prisoner behaviour that controls its actions.
 
+        [SerializeField] Vector2 escapeDirection;
+        [SerializeField] float escapeTime = 3f;
+        [SerializeField] float fadeSpeed = 1f;
+        float count;
+
+        SpriteRenderer sr;
+
         protected override void Start()
         {
             base.Start();
+
+            count = escapeTime;
+            sr = GetComponentInChildren<SpriteRenderer>();
 
             behaviour = PrisonerBehaviour.Stuck;
             // Ping animator to play stuck animation in loop.
@@ -30,10 +40,22 @@ namespace Characters
                     // Ping the animator to play the reward animation
                     // Spawn the player's reward.
                     Debug.Log("Enjoy your reward!");
+
+                    // Set movespeed to run.
+                    controller.speed *= 1.5f;
+
                     behaviour = PrisonerBehaviour.Escaping;
                     break;
 
                 case PrisonerBehaviour.Escaping:
+                    count -= Time.deltaTime;
+                    if (count <= 0f)
+                    {
+                        // Fade out and destroy.
+                        sr.color = new Color(1, 1, 1, Mathf.Lerp(sr.color.a, 0, fadeSpeed * Time.deltaTime));
+                        if (sr.color.a <= 0.01f)
+                            Destroy(gameObject);
+                    }
                     break;
             }
         }
@@ -48,7 +70,8 @@ namespace Characters
                     break;
 
                 case PrisonerBehaviour.Escaping:
-                    // TODO: Get the critter to run.
+                    // Get the critter to run.
+                    controller.Move(escapeDirection, false, false);
                     break;
             }
         }

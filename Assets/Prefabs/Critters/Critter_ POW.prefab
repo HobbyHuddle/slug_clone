@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8972288244935398127, guid: 61e0b4df26722fc449586147850291aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.34
       objectReference: {fileID: 0}
     - target: {fileID: 8972288244935398127, guid: 61e0b4df26722fc449586147850291aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 8972288244935398127, guid: 61e0b4df26722fc449586147850291aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90,3 +90,6 @@ MonoBehaviour:
   patrolPoints:
   - 3
   - -3
+  escapeDirection: {x: -1, y: 0}
+  escapeTime: 3
+  fadeSpeed: 2
