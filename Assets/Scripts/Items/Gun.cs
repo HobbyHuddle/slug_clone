@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using DataModels;
 using InController.Scripts;
-using Shared;
 using UnityEngine;
 
 namespace Items
@@ -79,7 +76,7 @@ namespace Items
             // LESSON: What is Quaternion.identity? https://docs.unity3d.com/ScriptReference/Quaternion-identity.html
             var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
             var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
-            bullet.rigidbody2d.AddForce(direction * firePower);
+            bullet.rigidbody2d.AddRelativeForce(direction * firePower);
         }
     }
 }

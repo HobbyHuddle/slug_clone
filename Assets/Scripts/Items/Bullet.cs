@@ -6,21 +6,52 @@ namespace Items
 {
     public class Bullet : MonoBehaviour
     {
+        [Header("Bullet")]
         public Projectile bullet;
+        public Rigidbody2D rigidbody2d;
         [Tooltip("The amount of seconds before the bullet disappears.")]
         public float bulletLifetime = 2;
-        public Rigidbody2D rigidbody2d;
-
+        [Tooltip("The distance between projectile and target when they collide.")]
+        public float collisionOffset = 1;
+        public LayerMask targetLayers;
+        
+        private Vector2 CurrentDirection => rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
+        
         private void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
             StartCoroutine(DestroyBullet());
         }
 
+        private void Update()
+        {
+            DestroyOnHit();
+        }
+
         private IEnumerator DestroyBullet()
         {
             yield return new WaitForSeconds(bulletLifetime);
             Destroy(gameObject);
+        }
+
+        private void DestroyOnHit()
+        {
+            var direction = rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
+            Ray2D ray = new Ray2D(transform.position, direction);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, direction, collisionOffset, targetLayers);
+            
+            Debug.DrawRay(ray.origin, direction * collisionOffset, Color.green);
+            if (hit)
+            {
+                StopAllCoroutines();
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawRay(transform.position, CurrentDirection * collisionOffset);
         }
     }
 }
