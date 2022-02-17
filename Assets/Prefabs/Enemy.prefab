@@ -49,7 +49,8 @@ MonoBehaviour:
   gunPoint: {fileID: 4648783671343118185}
   firePower: 0
   autoFireOn: 1
-  autoFireRate: 2
+  isNpc: 0
+  fireRate: 0
 --- !u!1 &2129204869877193353
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5929e60d1d692d847b3c317c3a992e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: NPC.WallCheck
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -403,6 +405,9 @@ MonoBehaviour:
   rigidbody2d: {fileID: 0}
   target: {fileID: 0}
   patrol: {fileID: 3665028931123531108}
+  inAttackRange:
+    m_PersistentCalls:
+      m_Calls: []
   aggroDistance: 3
   attackOffset: {x: -1, y: 0, z: 0}
   attackRange: 2

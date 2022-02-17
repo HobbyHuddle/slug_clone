@@ -11,12 +11,11 @@ namespace Items
         public Rigidbody2D rigidbody2d;
         [Tooltip("The amount of seconds before the bullet disappears.")]
         public float bulletLifetime = 2;
-
-        [Header("Bullet Mechanics")]
+        [Tooltip("The distance between projectile and target when they collide.")]
+        public float collisionOffset = 1;
         public LayerMask targetLayers;
-        [Range(0, 1)] public float castDistance = 0.25f;
-        [Range(0, 1)] public float castRadius = 0.1f;
         
+        private Vector2 CurrentDirection => rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
         
         private void Start()
         {
@@ -24,21 +23,35 @@ namespace Items
             StartCoroutine(DestroyBullet());
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(rigidbody2d.position, castRadius, Vector2.right, castDistance, targetLayers);
-            Debug.Log("Bullet hits " + hits.Length);
-            if (hits.Length > 0)
-            {
-                StopAllCoroutines();
-                Destroy(gameObject);
-            }
+            DestroyOnHit();
         }
 
         private IEnumerator DestroyBullet()
         {
             yield return new WaitForSeconds(bulletLifetime);
             Destroy(gameObject);
+        }
+
+        private void DestroyOnHit()
+        {
+            var direction = rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
+            Ray2D ray = new Ray2D(transform.position, direction);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, direction, collisionOffset, targetLayers);
+            
+            Debug.DrawRay(ray.origin, direction * collisionOffset, Color.green);
+            if (hit)
+            {
+                StopAllCoroutines();
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawRay(transform.position, CurrentDirection * collisionOffset);
         }
     }
 }

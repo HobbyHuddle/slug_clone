@@ -14402,6 +14402,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150788689}
     m_Modifications:
+    - target: {fileID: 2129204869877193353, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220831153117606507, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688191136842240631, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: isNpc
       value: 1
@@ -14434,17 +14446,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6848805006449976912, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 608093170}
+    - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: attackRange
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: aggroDistance
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7946769926019118198, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: inAttackRange.m_PersistentCalls.m_Calls.Array.size
@@ -14574,6 +14594,14 @@ PrefabInstance:
       propertyPath: projectileParent
       value: 
       objectReference: {fileID: 1511833027}
+    - target: {fileID: 5752676270995310455, guid: 7c1d3ae07164df04b8bb142875194380, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475020196494019500, guid: 7c1d3ae07164df04b8bb142875194380, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6475020196527671957, guid: 7c1d3ae07164df04b8bb142875194380, type: 3}
       propertyPath: m_Material
       value: 

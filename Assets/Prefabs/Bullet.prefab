@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9071653112309423409}
   - component: {fileID: 8596384490406009729}
   - component: {fileID: 2670273314989939307}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -135,8 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 11400000, guid: 5266adc3d5ca355449183e5c31b550f7, type: 2}
+  rigidbody2d: {fileID: 8596384490406009729}
+  bulletLifetime: 2
+  collisionOffset: 0.5
   targetLayers:
     serializedVersion: 2
-    m_Bits: 255
-  bulletLifetime: 2
-  rigidbody2d: {fileID: 8596384490406009729}
+    m_Bits: 73
