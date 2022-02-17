@@ -18,17 +18,20 @@ namespace Characters
         
         public bool FaceLeft { get => IsFacingLeft; set => facingLeft = value; }
         public bool Walk { get => walking; set => walking = value; }
-        public float aggroDistance = 3f;
-        public Vector3 attackOffset = new Vector3 { x = -1 };
-        public float attackRange = 2f;
+        [Tooltip("Becomes aware of another character, non-aggressively.")]
         public float sightRange = 8f;
+        [Tooltip("Will approach another, but not attack.")]
+        public float aggroRange = 3f;
+        [Tooltip("Will attack at this distance.")]
+        public float attackRange = 2f;
+        public Vector3 attackOffset = new Vector3 { x = -1 };
         public bool isHostile = true;
         public bool isPatrolling;
         
         private SpriteRenderer spriteRenderer;
         
         private bool InSightRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < sightRange;
-        private bool InAggroRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < aggroDistance;
+        private bool InAggroRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < aggroRange;
         private bool InAttackRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < attackRange;
         
         private void Start()
@@ -104,7 +107,7 @@ namespace Characters
 
         private void OnDrawGizmos()
         {
-            Vector2 direction = IsFacingLeft ? new Vector2 { x = -aggroDistance }: new Vector2 { x = aggroDistance};
+            Vector2 direction = IsFacingLeft ? new Vector2 { x = -aggroRange }: new Vector2 { x = aggroRange};
             Gizmos.color = Color.green;
             Gizmos.DrawRay(transform.position, direction);
         }
