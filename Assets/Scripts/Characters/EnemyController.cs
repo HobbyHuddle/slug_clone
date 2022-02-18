@@ -123,7 +123,6 @@ namespace Characters
         private void PatrolLeft()
         {
             Vector2 destination = patrol.leftPoint.position;
-            Debug.Log("Patrolling left.");
             FaceLeft = true;
             rigidbody2d.position = Vector2.MoveTowards(rigidbody2d.position, destination, patrol.speed * Time.deltaTime);
             if (rigidbody2d.position.x < destination.x + 1) // FIXME: workaround -- position resets to absolute so comparison fails otherwsie
@@ -136,7 +135,6 @@ namespace Characters
         private void PatrolRight()
         {
             Vector2 destination = patrol.rightPoint.position;
-            Debug.Log("Patrolling right.");
             FaceLeft = false;
             rigidbody2d.position = Vector2.MoveTowards(rigidbody2d.position, destination, patrol.speed * Time.deltaTime);
             if (rigidbody2d.position.x >= destination.x)

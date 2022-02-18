@@ -36,6 +36,7 @@ namespace Items
 
         private void DestroyOnHit()
         {
+            // FIXME: Currently, weapon position is further from player due to bullet collisions on spawn that prevent it from shooting.
             var direction = rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
             Ray2D ray = new Ray2D(transform.position, direction);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, direction, collisionOffset, targetLayers);

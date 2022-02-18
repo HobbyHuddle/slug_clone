@@ -24,10 +24,8 @@ namespace Items
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            Debug.Log("Collectible triggered by " + col);
             if (col.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Collectible picked.");
                 onItemPickup.Invoke(item);
                 
                 PlaySfx();
