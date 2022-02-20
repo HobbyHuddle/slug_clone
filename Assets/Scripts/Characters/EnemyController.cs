@@ -86,7 +86,7 @@ namespace Characters
 
         private void FixedUpdate()
         {
-            if (isPatrolling)
+            if (!IsDead && isPatrolling)
             {
                 if (InSightRange)
                 {
@@ -159,7 +159,6 @@ namespace Characters
             if (col.gameObject.layer.Equals(mask))
             {
                 Destroy(col.gameObject);
-                Debug.Log("Enemy killed by mask" + mask);
                 Die();
             }
         }

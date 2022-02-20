@@ -206,7 +206,6 @@ namespace InController.Scripts
             if (col.gameObject.layer.Equals(mask))
             {
                 Destroy(col.gameObject);
-                Debug.Log("Character killed by mask" + mask);
                 Die();
             }
         }
