@@ -25,7 +25,7 @@ namespace Items
 
         private void Update()
         {
-            DestroyOnHit();
+            // DestroyOnHit();
         }
 
         private IEnumerator DestroyBullet()
