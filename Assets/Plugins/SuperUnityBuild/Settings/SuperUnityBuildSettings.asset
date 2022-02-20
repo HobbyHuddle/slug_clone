@@ -74,9 +74,9 @@ MonoBehaviour:
     buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 2
-    buildVersion: 0.1.2
-    versionTemplate: 0.1.$BUILD
+    buildCounter: 5
+    buildVersion: 0.3.5
+    versionTemplate: 0.3.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
   _releaseTypeList:
@@ -89,7 +89,7 @@ MonoBehaviour:
       customDefines: 
       sceneList:
         enabledScenes:
-        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+        - fileGUID: f39c71c0b69e150458299720cb4c02a8
   _platformList:
     platforms:
     - {fileID: -2078740732003506281}
@@ -135,7 +135,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: Development/PC/Windows x86 (App)
+    selectedKeyChain: Development/PC/Windows x64 (App)
   _preBuildActions:
     buildActions: []
   _postBuildActions:

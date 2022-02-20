@@ -91,6 +91,10 @@ PrefabInstance:
       value: 1.934516
       objectReference: {fileID: 0}
     - target: {fileID: 1539363764302952273, guid: a453d0b82fb43284495334d908a22590, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 38e9dddcfaf6e8649bf3b336a6e6757a, type: 2}
+    - target: {fileID: 1539363764302952273, guid: a453d0b82fb43284495334d908a22590, type: 3}
       propertyPath: m_Offset.x
       value: 0.09161425
       objectReference: {fileID: 0}
@@ -101,6 +105,22 @@ PrefabInstance:
     - target: {fileID: 1539363764302952275, guid: a453d0b82fb43284495334d908a22590, type: 3}
       propertyPath: m_Name
       value: Variant.Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539363764302952298, guid: a453d0b82fb43284495334d908a22590, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 54b699a99f65e7649ac9a74c606c8df1, type: 2}
+    - target: {fileID: 1539363764302952300, guid: a453d0b82fb43284495334d908a22590, type: 3}
+      propertyPath: jumpHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539363764302952300, guid: a453d0b82fb43284495334d908a22590, type: 3}
+      propertyPath: jumpThrust
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539363764302952300, guid: a453d0b82fb43284495334d908a22590, type: 3}
+      propertyPath: wallSlideSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539363764302952302, guid: a453d0b82fb43284495334d908a22590, type: 3}
       propertyPath: m_Sprite
@@ -180,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539363764756742014, guid: a453d0b82fb43284495334d908a22590, type: 3}
       propertyPath: distanceToGround
-      value: 0.26
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a453d0b82fb43284495334d908a22590, type: 3}
