@@ -23,6 +23,12 @@ namespace InController.Scripts
         
         private void Update()
         {
+            // FIXME: Short term fix -- refactor 
+            if (controller.IsDead)
+            {
+                motion = Vector2.zero;
+                return;
+            }
 #if ENABLE_LEGACY_INPUT_MANAGER
             motion = new Vector2
             {

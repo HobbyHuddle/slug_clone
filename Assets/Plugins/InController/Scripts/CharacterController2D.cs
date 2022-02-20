@@ -1,43 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace InController.Scripts
 {
-    // TODO: test animator states actually work with new inspector fields
     [Serializable]
-    public class AnimatorStates
-    {
-        // TODO: implement custom drawer to set values in inspector
-        public static string idleString = "";
-        public static string runningString = "";
-        public static string walkingString = "";
-        public static string jumpingString = "";
-        public static string chasingString = "";
-        public static string attackingString = "";
-        public static string hurtString = "";
-        public static string climbingString = "";
-        public static string deadString = "";
-        public static string tumblingString = "";
-        public static string shootBowString = "";
-        public static string castSpellString = "";
-        public static string groundedString = "";
-        public static string fallingString = "";
-
-        public static int Idle = Animator.StringToHash(idleString);
-        public static int Running = Animator.StringToHash(runningString);
-        public static int Walking = Animator.StringToHash(walkingString);
-        public static int Chasing = Animator.StringToHash(chasingString);
-        public static int Jumping = Animator.StringToHash(jumpingString);
-        public static int Attacking = Animator.StringToHash(attackingString);
-        public static int Hurt = Animator.StringToHash(hurtString);
-        public static int Climbing = Animator.StringToHash(climbingString);
-        public static int Dead = Animator.StringToHash(deadString);
-        public static int Tumbling = Animator.StringToHash(tumblingString);
-        public static int ShootingBow = Animator.StringToHash(shootBowString);
-        public static int CastingSpell = Animator.StringToHash(castSpellString);
-        public static int Grounded = Animator.StringToHash(groundedString);
-        public static int Falling = Animator.StringToHash(fallingString);
-    }
+    public class PlayerDeathEvent : UnityEvent {}
+    
     /// <summary>
     /// Sets values that will help determine player behavior.
     /// Behaviors themselves are defined as such in their relevant scripts.
@@ -48,16 +18,13 @@ namespace InController.Scripts
         public float speed;
         public int jumpThrust;
         public float wallSlideSpeed;
-        [Tooltip("Define the strings used to name your animation states.")]
-        public AnimatorStates animatorStates = new AnimatorStates();
-        
         [Tooltip("Supports smoother motion transitions.")]
         [Range(0, 0.3f)] public float smoothDamp = 0.05f;
         public GroundCheck groundCheck;
         public CollisionCheck wallCheck;
-        
         // normal jump
         public float jumpHeight;
+        public PlayerDeathEvent onDeath;
 
         private float jumpVelocity => Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
         private Vector2 velocity = Vector2.zero;
@@ -70,17 +37,17 @@ namespace InController.Scripts
         public static readonly int Idle = Animator.StringToHash("idle");
         public static readonly int Running = Animator.StringToHash("running");
         public static readonly int Walking = Animator.StringToHash("walking");
-        public static readonly int Chasing = Animator.StringToHash("chasing");
         public static readonly int Jumping = Animator.StringToHash("jumping");
-        public static readonly int Attacking = Animator.StringToHash("attacking");
-        public static readonly int Hurt = Animator.StringToHash("hurt");
+        public static readonly int Shooting = Animator.StringToHash("shooting");
         public static readonly int Dead = Animator.StringToHash("dead");
-        public static readonly int Tumbling = Animator.StringToHash("tumbling");
-        public static readonly int ShootingBow = Animator.StringToHash("shootingBow");
-        public static readonly int CastingSpell = Animator.StringToHash("castingSpell");
-        public static readonly int WallSliding = Animator.StringToHash("wallSliding");
-        public static readonly int Climbing = Animator.StringToHash("climbing");
-        public static readonly int Grounded = Animator.StringToHash("grounded");
+        // public static readonly int Chasing = Animator.StringToHash("chasing");
+        // public static readonly int Attacking = Animator.StringToHash("attacking");
+        // public static readonly int Hurt = Animator.StringToHash("hurt");
+        // public static readonly int Tumbling = Animator.StringToHash("tumbling");
+        // public static readonly int CastingSpell = Animator.StringToHash("castingSpell");
+        // public static readonly int WallSliding = Animator.StringToHash("wallSliding");
+        // public static readonly int Climbing = Animator.StringToHash("climbing");
+        // public static readonly int Grounded = Animator.StringToHash("grounded");
 
         protected bool walking;
         protected bool hurt;
@@ -127,6 +94,14 @@ namespace InController.Scripts
         
         private void Update()
         {
+            if (IsDead)
+            {
+                motion = Vector2.zero;
+                SetAnimationState();
+                StartCoroutine(RemoveCorpse());
+                return;
+            }
+            
             if (motion.x > 0) facingLeft = false;
             if (motion.x < 0) facingLeft = true;
             SetAnimationState();
@@ -166,17 +141,17 @@ namespace InController.Scripts
         protected void SetAnimationState()
         {
             animator.SetBool(Running, IsRunning);
-            animator.SetBool(Walking, IsWalking);
+            // animator.SetBool(Walking, IsWalking);
             animator.SetBool(Idle, IsIdle);
             animator.SetBool(Jumping, IsJumping);
-            animator.SetBool(Attacking, IsAttacking);
-            animator.SetBool(Hurt, IsHurt);
-            animator.SetBool(Tumbling, IsTumbling);
+            animator.SetBool(Shooting, IsShooting);
             animator.SetBool(Dead, IsDead);
-            animator.SetBool(ShootingBow, shooting);
-            animator.SetBool(CastingSpell, IsSpellCasting);
-            animator.SetBool(Chasing, IsChasing);
-            animator.SetBool(WallSliding, IsWallSliding);
+            // animator.SetBool(WallSliding, IsWallSliding);
+            // animator.SetBool(Hurt, IsHurt);
+            // animator.SetBool(Tumbling, IsTumbling);
+            // animator.SetBool(ShootingBow, shooting);
+            // animator.SetBool(CastingSpell, IsSpellCasting);
+            // animator.SetBool(Chasing, IsChasing);
         }
     
         public void ChangeFaceDirection() 
@@ -210,6 +185,30 @@ namespace InController.Scripts
         public void WallSlide()
         {
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, rigidbody2d.velocity.y - wallSlideSpeed);
+        }
+        
+        public void Die()
+        {
+            Debug.Log("Character has died.");
+            dead = true;
+        }
+
+        IEnumerator RemoveCorpse()
+        {
+            yield return new WaitForSeconds(2);
+            onDeath.Invoke();
+            Destroy(gameObject);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            var mask = LayerMask.NameToLayer("Projectiles");
+            if (col.gameObject.layer.Equals(mask))
+            {
+                Destroy(col.gameObject);
+                Debug.Log("Character killed by mask" + mask);
+                Die();
+            }
         }
     }
 }

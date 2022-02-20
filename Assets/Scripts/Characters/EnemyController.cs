@@ -14,6 +14,7 @@ namespace Characters
     {
         public CharacterController2D target;
         public Patrol patrol;
+        public LayerMask deadlyLayers;
         public AttackEvent inAttackRange;
         
         public bool FaceLeft { get => IsFacingLeft; set => facingLeft = value; }
@@ -144,9 +145,23 @@ namespace Characters
             }
         }
 
-        public void Shoot()
+        private void OnCollisionEnter2D(Collision2D col)
         {
-            
+            if (col.gameObject.layer.Equals(deadlyLayers))
+            {
+                Die();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            var mask = LayerMask.NameToLayer("Projectiles");
+            if (col.gameObject.layer.Equals(mask))
+            {
+                Destroy(col.gameObject);
+                Debug.Log("Enemy killed by mask" + mask);
+                Die();
+            }
         }
     }
 }
