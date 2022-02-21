@@ -13,6 +13,7 @@ namespace Characters
     public abstract class BaseCharacter : MonoBehaviour
     {
         public float health = 1;
+        public float maxHealth = 50;
         public RangedWeapon weapon;
         public PlayerDeathEvent onDeath;
         
