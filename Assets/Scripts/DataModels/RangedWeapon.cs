@@ -16,7 +16,8 @@ namespace DataModels
         /** When this item is collected and the player already has it equipped, the ammo is reloaded. */
         public void Reload()
         {
-            projectileCount += 12;
+            if (projectileCount < maxProjectiles)
+                projectileCount += 4;
         }
     }
 }
