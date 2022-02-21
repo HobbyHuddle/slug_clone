@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace InController.Scripts
 {
     [Serializable]
-    public class PlayerDeathEvent : UnityEvent {}
+    public class PlayerHealthEvent : UnityEvent<float> {}
     
     /// <summary>
     /// Sets values that will help determine player behavior.
@@ -24,7 +24,7 @@ namespace InController.Scripts
         public CollisionCheck wallCheck;
         // normal jump
         public float jumpHeight;
-        public PlayerDeathEvent onDeath;
+        public PlayerHealthEvent onHealthChange;
 
         private float jumpVelocity => Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
         private Vector2 velocity = Vector2.zero;
@@ -196,17 +196,17 @@ namespace InController.Scripts
         IEnumerator RemoveCorpse()
         {
             yield return new WaitForSeconds(2);
-            onDeath.Invoke();
             Destroy(gameObject);
         }
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            var mask = LayerMask.NameToLayer("Projectiles");
-            if (col.gameObject.layer.Equals(mask))
+            // TODO: weapons damage, rations heal
+            var projectileLayer = LayerMask.NameToLayer("Projectiles");
+            if (col.gameObject.layer.Equals(projectileLayer))
             {
                 Destroy(col.gameObject);
-                Die();
+                onHealthChange.Invoke(-1); // damage is negative
             }
         }
     }
