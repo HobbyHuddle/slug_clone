@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DataModels;
 using InController.Scripts;
+using Shared;
 using UnityEngine;
 
 namespace Items
@@ -9,8 +10,9 @@ namespace Items
     [Serializable]
     public enum GunState { ReadyToFire, Shooting, Reset }
     
-    public class Gun : MonoBehaviour
+    public class Gun : MonoBehaviour, IWeapon
     {
+        public IWeapon weapon;
         public RangedWeapon rangedWeapon;
         public GameObject bulletPrefab;
         public Transform projectileParent;
@@ -72,6 +74,11 @@ namespace Items
             }
         }
 
+        public RangedWeapon GetRangedWeapon()
+        {
+            return rangedWeapon;
+        }
+        
         public void AutoFire()
         {
             if (gunState.Equals(GunState.ReadyToFire))

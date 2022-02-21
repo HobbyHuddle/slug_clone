@@ -1,9 +1,10 @@
 ﻿using DataModels;
+using Shared;
 using UnityEngine;
 
 namespace Items
 {
-    public class Launcher : MonoBehaviour
+    public class Launcher : MonoBehaviour, IWeapon
     {
         public RangedWeapon rangedWeapon;
         public GameObject missilePrefab;
@@ -60,6 +61,11 @@ namespace Items
             }
         }
 
+        public RangedWeapon GetRangedWeapon()
+        {
+            return rangedWeapon;
+        }
+        
         public void AutoFire()
         {
             if (gunState.Equals(GunState.ReadyToFire))
@@ -74,7 +80,8 @@ namespace Items
         {
             var missile = Instantiate(missilePrefab, launchPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
             var direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-            missile.rigidbody2d.AddRelativeForce(direction * firePower);
+            if (missile)
+                missile.rigidbody2d.AddRelativeForce(direction * firePower);
         }
     }
 }

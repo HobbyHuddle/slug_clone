@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 69854081c6c7c734c9b72d4ae34655e2, type: 3}
   description: A strong blast works fast.
   itemType: 1
-  projectileCount: 1
+  projectileCount: 4
   maxProjectiles: 12
   damage: 6

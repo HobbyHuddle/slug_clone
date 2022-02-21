@@ -1,6 +1,7 @@
 ﻿using System;
 using DataModels;
 using Items;
+using Shared;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,7 +18,7 @@ namespace Characters
         
         private void Start()
         {
-            weapon = GetComponentInChildren<Gun>().rangedWeapon;
+            weapon = GetComponentInChildren<IWeapon>().GetRangedWeapon();
         }
         
         public void UpdateHealth(float num)

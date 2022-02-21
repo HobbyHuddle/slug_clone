@@ -189,7 +189,6 @@ namespace InController.Scripts
         
         public void Die()
         {
-            Debug.Log("Character has died.");
             dead = true;
         }
 
