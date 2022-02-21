@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278c3e610e77449dbe17c1a6ec36aa27, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: 743888dda1104ed49093387d697bd0f7, type: 3}
+  m_Name: HealthKit
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 69854081c6c7c734c9b72d4ae34655e2, type: 3}
-  description: A strong blast works fast.
-  itemType: 1
-  projectileCount: 4
-  maxProjectiles: 12
-  damage: 6
+  icon: {fileID: 21300000, guid: ecbd863f20b81d74fb22cfb7bd1b8d16, type: 3}
+  description: First aid for minor healing.
+  itemType: 2
+  healingPower: 10

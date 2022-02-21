@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Characters;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Shared
@@ -6,6 +7,7 @@ namespace Shared
     public class GameManager : MonoBehaviour
     {
         public string currentScene;
+        public PlayerCharacter player1;
         
         public void ResetGame()
         {

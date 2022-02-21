@@ -1,22 +1,17 @@
-using System;
-using System.Collections;
-using DataModels;
-using InController.Scripts;
+﻿using DataModels;
 using Shared;
 using UnityEngine;
 
 namespace Items
 {
-    [Serializable]
-    public enum GunState { ReadyToFire, Shooting, Reset }
-    
-    public class Gun : MonoBehaviour, IWeapon
+    public class Launcher : MonoBehaviour, IWeapon
     {
-        public IWeapon weapon;
         public RangedWeapon rangedWeapon;
-        public GameObject bulletPrefab;
+        public GameObject missilePrefab;
         public Transform projectileParent;
-        public Transform gunPoint;
+        public Transform launchPoint;
+        [Tooltip("The character or object launching missiles.")]
+        public Transform launcher;
         [Tooltip("The force with which the gun shoots and the bullets fly.")]
         public float firePower;
         public bool autoFireOn;
@@ -25,14 +20,8 @@ namespace Items
         public float fireRate;
         public float delay;
 
-        private Transform character;
         private float nextRound = 0;
         private GunState gunState = GunState.ReadyToFire;
-
-        private void Start()
-        {
-            character = GetComponentInParent<CharacterController2D>().transform;
-        }
 
         private void Update()
         {
@@ -91,9 +80,14 @@ namespace Items
         
         public void Shoot()
         {
-            var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
-            var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
-            bullet.rigidbody2d.AddRelativeForce(direction * firePower);
+            if (!launcher)
+                launcher = transform;
+            var missile = Instantiate(missilePrefab, launchPoint.position, launcher.rotation, projectileParent).GetComponent<Bullet>();
+            var direction = launcher.localScale.x > 0 ? Vector2.right : Vector2.left;
+            if (missile)
+            {
+                missile.rigidbody2d.AddRelativeForce(direction * firePower);
+            }
         }
     }
 }

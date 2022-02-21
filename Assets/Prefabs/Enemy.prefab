@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944242074133809966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.57, z: 0}
+  m_LocalPosition: {x: 1.03, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6236839076431362741}
@@ -43,14 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7483aa0e849b74648a2bd5c6000099f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangedWeapon: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  rangedWeapon: {fileID: 11400000, guid: 39f0f91b9bd7f6841961c8de41af7fd1, type: 2}
+  bulletPrefab: {fileID: 5242373262241007670, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}
   projectileParent: {fileID: 0}
   gunPoint: {fileID: 4648783671343118185}
-  firePower: 0
-  autoFireOn: 1
-  isNpc: 0
-  fireRate: 0
+  firePower: 2000
+  autoFireOn: 0
+  isNpc: 1
+  fireRate: 1.5
 --- !u!1 &2129204869877193353
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2220831153117606507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.58, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6426090708207892033}
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2688191136842240631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6540163, y: 1.0700002, z: 6.4401875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9121254429277006250}
@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6236839076397710258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.71, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6236839076431362741}
@@ -206,7 +206,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015439987, y: -0.17442703}
+  m_Offset: {x: -0.017416477, y: -0.17442703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -217,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.98671913, y: 1.3488541}
+  m_Size: {x: 0.7718363, y: 1.3488541}
   m_EdgeRadius: 0
 --- !u!114 &6236839076397710268
 MonoBehaviour:
@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5929e60d1d692d847b3c317c3a992e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: NPC.WallCheck
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -267,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6236839076431362697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6540163, y: 1.0700002, z: 6.4401875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6236839076884591290}
@@ -316,7 +315,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7321226652901932978, guid: 4651bca5e2a189f428ab02e10ed2e4f7, type: 3}
+  m_Sprite: {fileID: -4693482738148656341, guid: 0bcdcdeef0ebc1645abeb064b55bac83, type: 3}
   m_Color: {r: 0.98039216, g: 0.25821096, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -340,8 +339,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.032579422, y: -1.0477622}
-  m_Size: {x: 0.9246292, y: 2.372931}
+  m_Offset: {x: 0.08785629, y: 0.03332448}
+  m_Size: {x: 0.8810921, y: 1.7339301}
   m_Direction: 0
 --- !u!50 &6236839076431362698
 Rigidbody2D:
@@ -374,7 +373,7 @@ Animator:
   m_GameObject: {fileID: 6236839076431362697}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54b699a99f65e7649ac9a74c606c8df1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -402,16 +401,46 @@ MonoBehaviour:
   groundCheck: {fileID: 6236839076884591268}
   wallCheck: {fileID: 6236839076397710268}
   jumpHeight: 1
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3784391974106921220}
+        m_TargetAssemblyTypeName: Characters.BaseCharacter, Assembly-CSharp
+        m_MethodName: UpdateHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rigidbody2d: {fileID: 0}
   target: {fileID: 0}
   patrol: {fileID: 3665028931123531108}
+  deadlyLayers:
+    serializedVersion: 2
+    m_Bits: 256
   inAttackRange:
     m_PersistentCalls:
-      m_Calls: []
-  aggroDistance: 3
+      m_Calls:
+      - m_Target: {fileID: 5856715636894539804}
+        m_TargetAssemblyTypeName: Items.Gun, Assembly-CSharp
+        m_MethodName: AutoFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sightRange: 10
+  aggroRange: 9
+  attackRange: 9
   attackOffset: {x: -1, y: 0, z: 0}
-  attackRange: 2
-  sightRange: 8
   isHostile: 1
   isPatrolling: 1
 --- !u!1 &6236839076884591289
@@ -440,7 +469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6236839076884591289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -2.316, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6236839076431362741}
@@ -498,6 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8068242288909066512}
+  - component: {fileID: 3784391974106921220}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -521,3 +551,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3784391974106921220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848805006449976912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb7273dcdff425c82a920dc00002e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  weapon: {fileID: 0}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7946769926019118198}
+        m_TargetAssemblyTypeName: InController.Scripts.CharacterController2D, Assembly-CSharp-firstpass
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

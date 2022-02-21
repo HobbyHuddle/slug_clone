@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 278c3e610e77449dbe17c1a6ec36aa27, type: 3}
-  m_Name: Shotgun
+  m_Name: Bomber
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 69854081c6c7c734c9b72d4ae34655e2, type: 3}
-  description: A strong blast works fast.
+  icon: {fileID: 21300000, guid: 188e3307d92684a43950109291b7d30f, type: 3}
+  description: Drop missiles from aircraft.
   itemType: 1
-  projectileCount: 4
-  maxProjectiles: 12
-  damage: 6
+  projectileCount: 10
+  maxProjectiles: 25
+  damage: 2

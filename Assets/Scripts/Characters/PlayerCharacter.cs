@@ -2,7 +2,6 @@
 using DataModels;
 using Items;
 using Shared;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Characters
@@ -10,11 +9,11 @@ namespace Characters
     [Serializable]
     public class HudUpdateEvent : UnityEvent<RangedWeapon> {}
     
-    public class PlayerCharacter : MonoBehaviour
+    
+    public class PlayerCharacter : BaseCharacter
     {
-        public float health;
-        public RangedWeapon weapon;
         public HudUpdateEvent onWeaponUpdate;
+        // public PlayerDeathEvent onDeath;
 
         private void Start()
         {
@@ -32,17 +31,12 @@ namespace Characters
                 
                 onWeaponUpdate.Invoke(weapon);
             }
-        }
 
-        // public void CollectItem(RangedWeapon rangedWeapon)
-        // {
-        //     if (rangedWeapon.itemType.Equals(ItemType.RangedWeapon))
-        //     {
-        //         if (weapon.Equals(rangedWeapon))
-        //             weapon.Reload();
-        //         else
-        //             weapon = rangedWeapon;
-        //     }
-        // }
+            if (item.itemType.Equals(ItemType.HealthBoost))
+            {
+                var healthBooster = item as HealthBooster;
+                UpdateHealth(healthBooster.healingPower);
+            }
+        }
     }
 }

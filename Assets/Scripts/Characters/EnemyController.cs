@@ -31,6 +31,7 @@ namespace Characters
         
         private SpriteRenderer spriteRenderer;
         
+        // FIXME: each of this requires a target null check. refactor usage
         private bool InSightRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < sightRange;
         private bool InAggroRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < aggroRange;
         private bool InAttackRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < attackRange;
@@ -57,12 +58,12 @@ namespace Characters
                 return;
             }
 
-            if (InSightRange)
+            if (target && InSightRange)
             {
                 facingLeft = !(target.transform.position.x - rigidbody2d.position.x > 0);
             }
             ChangeFaceDirection();
-            if (isHostile)
+            if (isHostile && target)
             {
                 if (InAttackRange)
                 {
@@ -88,7 +89,7 @@ namespace Characters
         {
             if (!IsDead && isPatrolling)
             {
-                if (InSightRange)
+                if (target && InSightRange)
                 {
                     walking = false;
                     return;
@@ -149,7 +150,7 @@ namespace Characters
         {
             if (col.gameObject.layer.Equals(deadlyLayers))
             {
-                Die();
+                // Die();
             }
         }
 
@@ -159,7 +160,8 @@ namespace Characters
             if (col.gameObject.layer.Equals(mask))
             {
                 Destroy(col.gameObject);
-                Die();
+                onHealthChange.Invoke(-1);
+                // Die();
             }
         }
     }

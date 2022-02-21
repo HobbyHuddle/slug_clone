@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278c3e610e77449dbe17c1a6ec36aa27, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: e42e527f413f441c955a70e524c04ef7, type: 3}
+  m_Name: Missile
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 69854081c6c7c734c9b72d4ae34655e2, type: 3}
-  description: A strong blast works fast.
-  itemType: 1
-  projectileCount: 4
-  maxProjectiles: 12
-  damage: 6
+  icon: {fileID: 21300000, guid: 188e3307d92684a43950109291b7d30f, type: 3}
+  description: Death from the BOOM.
+  itemType: 0
