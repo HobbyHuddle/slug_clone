@@ -10,6 +10,8 @@ namespace Items
         public GameObject missilePrefab;
         public Transform projectileParent;
         public Transform launchPoint;
+        [Tooltip("The character or object launching missiles.")]
+        public Transform launcher;
         [Tooltip("The force with which the gun shoots and the bullets fly.")]
         public float firePower;
         public bool autoFireOn;
@@ -78,10 +80,14 @@ namespace Items
         
         public void Shoot()
         {
-            var missile = Instantiate(missilePrefab, launchPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
-            var direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            if (!launcher)
+                launcher = transform;
+            var missile = Instantiate(missilePrefab, launchPoint.position, launcher.rotation, projectileParent).GetComponent<Bullet>();
+            var direction = launcher.localScale.x > 0 ? Vector2.right : Vector2.left;
             if (missile)
+            {
                 missile.rigidbody2d.AddRelativeForce(direction * firePower);
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5615319970138374689}
   - component: {fileID: 1364767072387453623}
   - component: {fileID: 1329061356174184892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.26180056, y: 0.023800405}
@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7585df34f692476fb0dc05e2e83a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missile: {fileID: 11400000, guid: 4917ff8473babf94ab35c78c0cdcdcea, type: 2}
   rigidbody2d: {fileID: 5615319970138374689}
   missileLifetime: 2
   collisionOffset: 1

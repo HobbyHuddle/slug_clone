@@ -208,7 +208,7 @@ namespace InController.Scripts
             if (colLayer.Equals(projectileLayer))
             {
                 Destroy(col.gameObject);
-                onHealthChange.Invoke(-1); // damage is negative
+                onHealthChange.Invoke(-2); // damage is negative
             }
             if (colLayer.Equals(hazardsLayer))
             {

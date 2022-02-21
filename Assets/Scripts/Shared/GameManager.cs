@@ -13,10 +13,5 @@ namespace Shared
         {
             SceneManager.LoadSceneAsync(currentScene);
         }
-
-        public void HealthBoost()
-        {
-            player1.health += 50;
-        }
     }
 }
