@@ -31,15 +31,12 @@ namespace Characters
                 
                 onWeaponUpdate.Invoke(weapon);
             }
-        }
 
-        // public void UpdateHealth(float num)
-        // {
-        //     health += num;
-        //     if (health < 0)
-        //     {
-        //         onDeath.Invoke();
-        //     }
-        // }
+            if (item.itemType.Equals(ItemType.HealthBoost))
+            {
+                var healthBooster = item as HealthBooster;
+                UpdateHealth(healthBooster.healingPower);
+            }
+        }
     }
 }

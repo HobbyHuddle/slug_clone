@@ -7,6 +7,7 @@ namespace Items
 {
     [Serializable]
     public class CollectItemEvent : UnityEvent<Item> {}
+    
     public class CollectibleItem : MonoBehaviour
     {
         public Item item;
