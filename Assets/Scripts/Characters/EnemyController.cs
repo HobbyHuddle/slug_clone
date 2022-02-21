@@ -63,9 +63,9 @@ namespace Characters
                 facingLeft = !(target.transform.position.x - rigidbody2d.position.x > 0);
             }
             ChangeFaceDirection();
-            if (isHostile)
+            if (isHostile && target)
             {
-                if (target && InAttackRange)
+                if (InAttackRange)
                 {
                     chasing = false;
                     inAttackRange.Invoke();

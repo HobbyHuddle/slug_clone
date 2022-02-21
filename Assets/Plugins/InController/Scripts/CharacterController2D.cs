@@ -203,11 +203,19 @@ namespace InController.Scripts
         {
             // TODO: weapons damage, rations heal
             var projectileLayer = LayerMask.NameToLayer("Projectiles");
-            if (col.gameObject.layer.Equals(projectileLayer))
+            var hazardsLayer = LayerMask.NameToLayer("Hazards");
+            var colLayer = col.gameObject.layer;
+            // FIXME: Refactor towards a boxcast or like to check all deadly layers.
+            if (colLayer.Equals(projectileLayer))
             {
                 Destroy(col.gameObject);
                 onHealthChange.Invoke(-1); // damage is negative
             }
+            if (colLayer.Equals(hazardsLayer))
+            {
+                onHealthChange.Invoke(-1); // damage is negative
+            }
+            
         }
     }
 }
