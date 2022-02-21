@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DataModels;
 using InController.Scripts;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Items
         public bool isNpc;
         [Tooltip("The number of seconds between each shot.")]
         public float fireRate;
+        public float delay;
 
         private Transform character;
         private float nextRound = 0;
@@ -35,11 +37,20 @@ namespace Items
             if (isNpc)
             {
                 GetGunState();
-                if (autoFireOn)
+                CountDown();
+                if (autoFireOn && delay <= 0)
+                {
                     AutoFire();
+                }
             }
             if (Input.GetButtonDown("Fire1") && !isNpc)
                 Shoot();
+        }
+
+        private void CountDown()
+        {
+            if (delay > 0)
+                delay -= Time.deltaTime;
         }
 
         private void GetGunState()
@@ -73,7 +84,6 @@ namespace Items
         
         public void Shoot()
         {
-            // LESSON: What is Quaternion.identity? https://docs.unity3d.com/ScriptReference/Quaternion-identity.html
             var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
             var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
             bullet.rigidbody2d.AddRelativeForce(direction * firePower);
