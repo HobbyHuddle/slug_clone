@@ -31,6 +31,7 @@ namespace Items
         private GunState gunState = GunState.ReadyToFire;
         private AudioSource audio;
         private RangedWeapon originalWeapon;
+        private CharacterController2D controller;
 
         private void Start()
         {
@@ -38,6 +39,9 @@ namespace Items
             rangedWeapon = GetComponentInParent<BaseCharacter>().weapon;
             audio = GetComponent<AudioSource>();
             audio.clip = rangedWeapon.sfx;
+            
+            // FIXME: Temporary fix until input key refactor
+            controller = character.gameObject.GetComponent<CharacterController2D>();
         }
 
         private void Update()
@@ -51,7 +55,7 @@ namespace Items
                     AutoFire();
                 }
             }
-            if (Input.GetButtonDown("Fire1") && !isNpc)
+            if (Input.GetButtonDown("Fire1") && !isNpc && !controller.IsDead)
                 Shoot();
         }
 
