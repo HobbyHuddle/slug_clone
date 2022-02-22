@@ -30,6 +30,7 @@ namespace Characters
         public bool isPatrolling;
         
         private SpriteRenderer spriteRenderer;
+        private Enemy enemy;
         
         // FIXME: each of this requires a target null check. refactor usage
         private bool InSightRange => Vector2.Distance(rigidbody2d.position, target.transform.position) < sightRange;
@@ -40,6 +41,7 @@ namespace Characters
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             currentScale = rigidbody2d.transform.localScale;
+            enemy = GetComponentInParent<Enemy>();
         }
         
         private void Update()
@@ -54,6 +56,7 @@ namespace Characters
                 motion = new Vector2();
                 dead = true;
                 gameObject.layer = LayerMask.NameToLayer("Untouchable");
+                StartCoroutine(RemoveCorpse());
                 SetAnimationState();
                 return;
             }
@@ -114,6 +117,12 @@ namespace Characters
             Gizmos.DrawRay(transform.position, direction);
         }
 
+        private IEnumerator RemoveCorpse()
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(enemy.gameObject); 
+        }
+        
         private IEnumerator AttackOnCooldown()
         {
             attacking = true;
@@ -146,22 +155,14 @@ namespace Characters
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.layer.Equals(deadlyLayers))
-            {
-                // Die();
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D col)
         {
             var mask = LayerMask.NameToLayer("Projectiles");
+            var projectile = col.gameObject;
             if (col.gameObject.layer.Equals(mask))
             {
-                Destroy(col.gameObject);
+                Destroy(projectile);
                 onHealthChange.Invoke(-1);
-                // Die();
             }
         }
     }
