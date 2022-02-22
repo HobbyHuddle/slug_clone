@@ -14,7 +14,6 @@ namespace World
             if (col.CompareTag("Player"))
             {
                 var player = col.GetComponent<CharacterController2D>();
-                Debug.Log("Player has died by " + damageType);
                 // player.Die();
             }
         }

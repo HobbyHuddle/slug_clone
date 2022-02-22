@@ -17,4 +17,6 @@ MonoBehaviour:
   itemType: 1
   projectileCount: 10
   maxProjectiles: 25
-  damage: 2
+  reloadAmount: 4
+  damage: 4
+  sfx: {fileID: 8300000, guid: f7fe0be08ec935843b264cceb7deaad0, type: 3}

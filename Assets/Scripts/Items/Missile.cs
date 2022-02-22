@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DataModels;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Items
@@ -19,8 +16,8 @@ namespace Items
         public MissileOrientation orientation;
         private Animator animator;
         private Vector2 customDirection;
+        private AudioSource audio;
         
-        private Vector2 CurrentDirection => rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
         private bool explode;
         private static readonly int Explode = Animator.StringToHash("explode");
 
@@ -28,6 +25,7 @@ namespace Items
         {
             animator = GetComponent<Animator>();
             rigidbody2d = GetComponent<Rigidbody2D>();
+            audio = GetComponent<AudioSource>();
             GetOrientation();
             StartCoroutine(DestroyMissile());
         }
@@ -56,6 +54,7 @@ namespace Items
         {
             yield return new WaitForSeconds(missileLifetime);
             explode = true;
+            audio.Play();
             yield return new WaitForSeconds(0.5f);
             Destroy(gameObject);
         }
@@ -70,6 +69,8 @@ namespace Items
             if (hit)
             {
                 explode = true;
+                audio.Play();
+                // TODO: Still need to destroy this on hit. Currently relying on timeout.
             }
         }
 

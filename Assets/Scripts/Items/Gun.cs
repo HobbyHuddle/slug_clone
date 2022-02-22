@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Characters;
 using DataModels;
 using InController.Scripts;
 using Shared;
@@ -28,10 +29,15 @@ namespace Items
         private Transform character;
         private float nextRound = 0;
         private GunState gunState = GunState.ReadyToFire;
+        private AudioSource audio;
+        private RangedWeapon originalWeapon;
 
         private void Start()
         {
             character = GetComponentInParent<CharacterController2D>().transform;
+            rangedWeapon = GetComponentInParent<BaseCharacter>().weapon;
+            audio = GetComponent<AudioSource>();
+            audio.clip = rangedWeapon.sfx;
         }
 
         private void Update()
@@ -74,6 +80,13 @@ namespace Items
             }
         }
 
+        public void SwapWeapon(RangedWeapon newWeapon)
+        {
+            originalWeapon = rangedWeapon;
+            rangedWeapon = newWeapon;
+            audio.clip = rangedWeapon.sfx;
+        }
+
         public RangedWeapon GetRangedWeapon()
         {
             return rangedWeapon;
@@ -94,6 +107,12 @@ namespace Items
             var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Bullet>();
             var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
             bullet.rigidbody2d.AddRelativeForce(direction * firePower);
+            PlaySfx();
+        }
+
+        public void PlaySfx()
+        {
+            audio.Play();
         }
     }
 }
