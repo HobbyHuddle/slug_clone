@@ -1,10 +1,7 @@
-﻿using System;
-using System.Data;
-using Characters;
+﻿using Characters;
 using DataModels;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace UI
 {
@@ -12,13 +9,13 @@ namespace UI
     public class HudPanel : MonoBehaviour
     {
         public PlayerCharacter player;
-        // public TextMeshProUGUI health;
         public TextMeshProUGUI score;
         public GameObject ammoRow;
         public GameObject ammoRowPrefab;
 
         private RangedWeapon currentWeapon;
-        
+        private const int iconLimit = 12;
+
         private void Start()
         {
             score.text = 0.ToString();
@@ -41,6 +38,7 @@ namespace UI
 
         public void UpdateAmmo(RangedWeapon weapon)
         {
+            var ammoLimit = weapon.projectileCount > iconLimit ? iconLimit : weapon.projectileCount;
             if (currentWeapon.Equals(weapon))
             {
                 var newAmmo = weapon.projectileCount - currentWeapon.projectileCount;
@@ -48,10 +46,10 @@ namespace UI
                 {
                     Instantiate(ammoRowPrefab, ammoRow.transform);
                 }
-            }
+            } 
             else
             {
-                for (int i = 0; i < weapon.projectileCount; i++)
+                for (int i = 0; i < ammoLimit; i++)
                 {
                     Instantiate(ammoRowPrefab, ammoRow.transform);
                 }

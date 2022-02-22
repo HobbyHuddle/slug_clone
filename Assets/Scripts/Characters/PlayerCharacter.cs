@@ -1,7 +1,9 @@
 ﻿using System;
 using DataModels;
 using Items;
+using Resources;
 using Shared;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Characters
@@ -12,12 +14,14 @@ namespace Characters
     
     public class PlayerCharacter : BaseCharacter
     {
+        public CharacterSfx sfx;
         public HudUpdateEvent onWeaponUpdate;
-        // public PlayerDeathEvent onDeath;
+
+        private new AudioSource audio;
 
         private void Start()
         {
-            weapon = GetComponentInChildren<Gun>().rangedWeapon;
+            audio = GetComponent<AudioSource>();
         }
 
         public void CollectItem(Item item)
@@ -37,6 +41,18 @@ namespace Characters
                 var healthBooster = item as HealthBooster;
                 UpdateHealth(healthBooster.healingPower);
             }
+        }
+
+        public void PlayRunSfx()
+        {
+            audio.clip = sfx.run;
+            audio.Play();
+        }
+
+        public void PlayDeathSfx()
+        {
+            audio.clip = sfx.die;
+            audio.Play();
         }
     }
 }

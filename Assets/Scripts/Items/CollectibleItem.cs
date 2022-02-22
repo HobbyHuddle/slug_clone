@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using Shared;
@@ -29,11 +30,17 @@ namespace Items
             {
                 onItemPickup.Invoke(item);
                 
-                PlaySfx();
-                Destroy(gameObject);
+                StartCoroutine(Consume());
             }
         }
 
+        IEnumerator Consume()
+        {
+            if (sfx.clip) sfx.Play();
+            yield return new WaitForSeconds(0.2f);
+            Destroy(gameObject);
+        }
+        
         public void PlaySfx()
         {
             if (sfx.clip) sfx.Play();
