@@ -217,5 +217,15 @@ namespace InController.Scripts
             }
             
         }
+
+        private void OnTriggerStay2D(Collider2D col)
+        {
+            var hazardsLayer = LayerMask.NameToLayer("Hazards");
+            var hazard = col.gameObject;
+            if (hazard.layer.Equals(hazardsLayer))
+            {
+                onHealthChange.Invoke(-1); // damage is negative
+            }
+        }
     }
 }
