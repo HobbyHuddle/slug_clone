@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 11400000, guid: 5266adc3d5ca355449183e5c31b550f7, type: 2}
   rigidbody2d: {fileID: 8596384490406009729}
-  bulletLifetime: 2
+  bulletLifetime: 0.5
   collisionOffset: 0.5
   targetLayers:
     serializedVersion: 2

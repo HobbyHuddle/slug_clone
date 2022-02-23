@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Shared
 {
     [Serializable]
-    public enum ItemType { Projectile, RangedWeapon, HealthBoost }
+    public enum ItemType { Projectile, RangedWeapon, HealthBoost, POW }
     
     public abstract class Item : ScriptableObject
     {
