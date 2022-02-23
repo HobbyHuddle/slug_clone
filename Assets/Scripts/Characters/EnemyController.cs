@@ -71,10 +71,10 @@ namespace Characters
                 if (InAttackRange)
                 {
                     chasing = false;
-                    inAttackRange.Invoke();
                     StartCoroutine(AttackOnCooldown());
+                    inAttackRange.Invoke();
                 }
-                if (InAggroRange)
+                if (InAggroRange & !InAttackRange)
                 {
                     attacking = false;
                     chasing = true;

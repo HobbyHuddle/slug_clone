@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0caee97b30f34da293d76a526d77a01d, type: 3}
+  m_Name: POW
+  m_EditorClassIdentifier: 
+  icon: {fileID: 8795789334432829021, guid: 9a40df353d497374c926da7e2ee02051, type: 3}
+  description: A fellow goblin in need of your help.
+  itemType: 3

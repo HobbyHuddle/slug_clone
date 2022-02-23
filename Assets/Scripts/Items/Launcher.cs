@@ -1,10 +1,11 @@
-﻿using DataModels;
+﻿using System;
+using DataModels;
 using Shared;
 using UnityEngine;
 
 namespace Items
 {
-    public class Launcher : MonoBehaviour, IWeapon
+    public class Launcher : Spawner, IWeapon
     {
         public RangedWeapon rangedWeapon;
         public GameObject missilePrefab;
@@ -14,22 +15,24 @@ namespace Items
         public Transform launcher;
         [Tooltip("The force with which the gun shoots and the bullets fly.")]
         public float firePower;
-        public bool autoFireOn;
         public bool isNpc;
         [Tooltip("The number of seconds between each shot.")]
         public float fireRate;
-        public float delay;
 
         private float nextRound = 0;
         private GunState gunState = GunState.ReadyToFire;
+
+        private void Start()
+        {
+            counter = delay;
+        }
 
         private void Update()
         {
             if (isNpc)
             {
                 GetGunState();
-                CountDown();
-                if (autoFireOn && delay <= 0)
+                if (autoFireOn)
                 {
                     AutoFire();
                 }
@@ -40,8 +43,8 @@ namespace Items
 
         private void CountDown()
         {
-            if (delay > 0)
-                delay -= Time.deltaTime;
+            if (counter > 0)
+                counter -= Time.deltaTime;
         }
 
         private void GetGunState()
@@ -72,9 +75,16 @@ namespace Items
         {
             if (gunState.Equals(GunState.ReadyToFire))
             {
-                gunState = GunState.Shooting;
-                nextRound = Time.time + fireRate;
-                Shoot();
+                if (counter > 0)
+                {
+                    CountDown();
+                }
+                else
+                {
+                    gunState = GunState.Shooting;
+                    nextRound = Time.time + fireRate;
+                    Shoot();
+                }
             }
         }
         
