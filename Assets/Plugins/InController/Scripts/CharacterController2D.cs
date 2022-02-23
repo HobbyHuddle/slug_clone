@@ -40,8 +40,8 @@ namespace InController.Scripts
         public static readonly int Jumping = Animator.StringToHash("jumping");
         public static readonly int Shooting = Animator.StringToHash("shooting");
         public static readonly int Dead = Animator.StringToHash("dead");
+        public static readonly int Attacking = Animator.StringToHash("attacking");
         // public static readonly int Chasing = Animator.StringToHash("chasing");
-        // public static readonly int Attacking = Animator.StringToHash("attacking");
         // public static readonly int Hurt = Animator.StringToHash("hurt");
         // public static readonly int Tumbling = Animator.StringToHash("tumbling");
         // public static readonly int CastingSpell = Animator.StringToHash("castingSpell");
@@ -67,7 +67,7 @@ namespace InController.Scripts
         public bool IsFacingLeft => facingLeft;
         public bool IsJumping => jumping;
         public bool IsAttacking => attacking;
-        public bool IsIdle => motion.x == 0 & motion.y == 0;
+        public bool IsIdle => !walking && (motion.x == 0 & motion.y == 0);
         public bool IsRunning => Mathf.Abs(motion.x) > 0 | Mathf.Abs(motion.y) > 0;
         public bool IsWalking => walking;
         public bool IsHurt => hurt;  // character has been hit
@@ -141,9 +141,10 @@ namespace InController.Scripts
         protected void SetAnimationState()
         {
             animator.SetBool(Running, IsRunning);
-            // animator.SetBool(Walking, IsWalking);
+            animator.SetBool(Walking, IsWalking);
             animator.SetBool(Idle, IsIdle);
             animator.SetBool(Jumping, IsJumping);
+            animator.SetBool(Attacking, IsAttacking);
             animator.SetBool(Shooting, IsShooting);
             animator.SetBool(Dead, IsDead);
             // animator.SetBool(WallSliding, IsWallSliding);
