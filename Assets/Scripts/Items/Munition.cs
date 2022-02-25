@@ -1,36 +1,35 @@
 ﻿using System.Collections;
 using DataModels;
+using Shared;
 using UnityEngine;
 
 namespace Items
 {
-    public class Bullet : MonoBehaviour
+    public class Munition : MonoBehaviour
     {
         [Header("Bullet")]
-        public Projectile bullet;
+        public Projectile projectile;
         public Rigidbody2D rigidbody2d;
         [Tooltip("The amount of seconds before the bullet disappears.")]
-        public float bulletLifetime = 2;
+        public float projectileLifetime = 2;
         [Tooltip("The distance between projectile and target when they collide.")]
         public float collisionOffset = 1;
         public LayerMask targetLayers;
         
         private Vector2 CurrentDirection => rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
+        private SpriteRenderer spriteRenderer;
         
         private void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = projectile.icon;
             StartCoroutine(DestroyBullet());
-        }
-
-        private void Update()
-        {
-            // DestroyOnHit();
         }
 
         private IEnumerator DestroyBullet()
         {
-            yield return new WaitForSeconds(bulletLifetime);
+            yield return new WaitForSeconds(projectileLifetime);
             Destroy(gameObject);
         }
 

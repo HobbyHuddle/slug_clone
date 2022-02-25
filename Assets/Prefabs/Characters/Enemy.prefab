@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangedWeapon: {fileID: 11400000, guid: 39f0f91b9bd7f6841961c8de41af7fd1, type: 2}
-  bulletPrefab: {fileID: 5242373262241007670, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}
+  bulletPrefab: {fileID: 7343561136998400267, guid: 921c1fd8c3c9ca34b88c657ca43ef471, type: 3}
   projectileParent: {fileID: 0}
   gunPoint: {fileID: 4648783671343118185}
   firePower: 2000
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9121254429277006250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3650047757375701562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6426090708207892033}
   - component: {fileID: 3665028931123531108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Patrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,6 +539,7 @@ MonoBehaviour:
   aggroRange: 9
   attackRange: 9
   attackOffset: {x: -1, y: 0, z: 0}
+  corpseTimer: 0.5
   isHostile: 1
   isPatrolling: 1
 --- !u!1 &6236839076884591289
@@ -626,7 +627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8068242288909066512}
   - component: {fileID: 3784391974106921220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

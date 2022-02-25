@@ -199,25 +199,25 @@ namespace InController.Scripts
             Destroy(gameObject); 
         }
         
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            // TODO: weapons damage, rations heal
-            var projectileLayer = LayerMask.NameToLayer("Projectiles");
-            var hazardsLayer = LayerMask.NameToLayer("Hazards");
-            var colLayer = col.gameObject.layer;
-            var projectile = col.gameObject;
-            // FIXME: Refactor towards a boxcast or like to check all deadly layers.
-            if (colLayer.Equals(projectileLayer))
-            {
-                Destroy(projectile);
-                onHealthChange.Invoke(-2); // damage is negative
-            }
-            if (colLayer.Equals(hazardsLayer))
-            {
-                onHealthChange.Invoke(-1); // damage is negative
-            }
-            
-        }
+        // private void OnTriggerEnter2D(Collider2D col)
+        // {
+        //     // TODO: weapons damage, rations heal
+        //     var projectileLayer = LayerMask.NameToLayer("Projectiles");
+        //     var hazardsLayer = LayerMask.NameToLayer("Hazards");
+        //     var colLayer = col.gameObject.layer;
+        //     var projectile = col.gameObject;
+        //     // FIXME: Refactor towards a boxcast or like to check all deadly layers.
+        //     if (colLayer.Equals(projectileLayer))
+        //     {
+        //         Destroy(projectile);
+        //         onHealthChange.Invoke(-2); // damage is negative
+        //     }
+        //     if (colLayer.Equals(hazardsLayer))
+        //     {
+        //         onHealthChange.Invoke(-1); // damage is negative
+        //     }
+        //     
+        // }
 
         private void OnTriggerStay2D(Collider2D col)
         {

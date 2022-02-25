@@ -92,7 +92,7 @@ namespace Items
         {
             if (!launcher)
                 launcher = transform;
-            var missile = Instantiate(missilePrefab, launchPoint.position, launcher.rotation, projectileParent).GetComponent<Bullet>();
+            var missile = Instantiate(missilePrefab, launchPoint.position, launcher.rotation, projectileParent).GetComponent<Munition>();
             var direction = launcher.localScale.x > 0 ? Vector2.right : Vector2.left;
             if (missile)
             {

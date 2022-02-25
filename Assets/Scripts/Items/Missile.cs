@@ -1,18 +1,14 @@
 ﻿using System.Collections;
+using DataModels;
+using Shared;
 using UnityEngine;
 
 namespace Items
 {
     public enum MissileOrientation { Vertical, Horizontal }
-    public class Missile : MonoBehaviour
+    public class Missile : Munition
     {
         [Header("Missile")]
-        public Rigidbody2D rigidbody2d;
-        [Tooltip("The amount of seconds before the missile disappears.")]
-        public float missileLifetime = 2;
-        [Tooltip("The distance between projectile and target when they collide.")]
-        public float collisionOffset = 1;
-        public LayerMask targetLayers;
         public MissileOrientation orientation;
         private Animator animator;
         private Vector2 customDirection;
@@ -52,7 +48,7 @@ namespace Items
 
         private IEnumerator DestroyMissile()
         {
-            yield return new WaitForSeconds(missileLifetime);
+            yield return new WaitForSeconds(projectileLifetime);
             explode = true;
             audio.Play();
             yield return new WaitForSeconds(0.5f);

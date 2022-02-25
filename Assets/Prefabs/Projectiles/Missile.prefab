@@ -155,12 +155,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7585df34f692476fb0dc05e2e83a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 11400000, guid: 4917ff8473babf94ab35c78c0cdcdcea, type: 2}
   rigidbody2d: {fileID: 5615319970138374689}
-  missileLifetime: 2
+  projectileLifetime: 2
   collisionOffset: 1
   targetLayers:
     serializedVersion: 2
     m_Bits: 521
+  missile: {fileID: 11400000, guid: 4917ff8473babf94ab35c78c0cdcdcea, type: 2}
+  missileLifetime: 2
   orientation: 1
 --- !u!82 &4381042899809477863
 AudioSource:

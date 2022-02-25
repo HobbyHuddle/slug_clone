@@ -39,19 +39,24 @@ namespace UI
         public void UpdateAmmo(RangedWeapon weapon)
         {
             var ammoLimit = weapon.projectileCount > iconLimit ? iconLimit : weapon.projectileCount;
+            var ammoSlot = Instantiate(ammoRowPrefab, ammoRow.transform);
+            var ammo = ammoSlot.GetComponent<AmmoStatusPanel>();
+            
             if (currentWeapon.Equals(weapon))
             {
                 var newAmmo = weapon.projectileCount - currentWeapon.projectileCount;
-                for (int i = 0; i < newAmmo; i++)
+                ammoLimit = newAmmo > ammoLimit ? ammoLimit : newAmmo;
+                for (int i = 0; i < ammoLimit; i++)
                 {
-                    Instantiate(ammoRowPrefab, ammoRow.transform);
+                    ammo.UpdateItem(weapon);
                 }
             } 
             else
             {
+                currentWeapon = weapon;
                 for (int i = 0; i < ammoLimit; i++)
                 {
-                    Instantiate(ammoRowPrefab, ammoRow.transform);
+                    ammo.UpdateItem(currentWeapon);
                 }
             }
         }

@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42e527f413f441c955a70e524c04ef7, type: 3}
-  m_Name: 9mmBullet
+  m_Name: Orb
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: a7dbbd30209ba184cac2f7b7181eba39, type: 3}
-  description: Fit for a sharpshootin' pistoleer.
+  icon: {fileID: -5561476735004764157, guid: 4b4e6f2d418040040be965950e867843, type: 3}
+  image: {fileID: -5561476735004764157, guid: 4b4e6f2d418040040be965950e867843, type: 3}
+  description: Prowler electro orb.
+  itemType: 0
   damage: 3

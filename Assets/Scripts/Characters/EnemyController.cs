@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using DataModels;
 using InController.Scripts;
+using Items;
 using Shared;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,6 +28,7 @@ namespace Characters
         [Tooltip("Will attack at this distance.")]
         public float attackRange = 2f;
         public Vector3 attackOffset = new Vector3 { x = -1 };
+        public float corpseTimer = 1f;
         public bool isHostile = true;
         public bool isPatrolling;
         
@@ -119,7 +122,7 @@ namespace Characters
 
         private IEnumerator RemoveCorpse()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(corpseTimer);
             Destroy(enemy.gameObject); 
         }
         
@@ -161,8 +164,10 @@ namespace Characters
             var projectile = col.gameObject;
             if (col.gameObject.layer.Equals(mask))
             {
+                var damage = projectile.GetComponent<Munition>().projectile.damage;
+                Debug.Log("Projectile damage: " + damage);
                 Destroy(projectile);
-                onHealthChange.Invoke(-1);
+                onHealthChange.Invoke(-damage);
             }
         }
     }

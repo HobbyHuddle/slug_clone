@@ -5,6 +5,7 @@ using Resources;
 using Shared;
 using UnityEngine;
 using UnityEngine.Events;
+using World;
 
 namespace Characters
 {
@@ -40,6 +41,28 @@ namespace Characters
             {
                 var healthBooster = item as HealthBooster;
                 UpdateHealth(healthBooster.healingPower);
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            // TODO: weapons damage, rations heal
+            var projectileLayer = LayerMask.NameToLayer("Projectiles");
+            var hazardsLayer = LayerMask.NameToLayer("Hazards");
+            var colLayer = col.gameObject.layer;
+            // FIXME: Refactor towards a boxcast or like to check all deadly layers.
+            if (colLayer.Equals(projectileLayer))
+            {
+                var projectile = col.gameObject;
+                var damage = projectile.GetComponent<Munition>().projectile.damage;
+                Destroy(projectile);
+                UpdateHealth(-damage);
+            }
+
+            if (colLayer.Equals(hazardsLayer))
+            {
+                var damage = col.gameObject.GetComponent<WorldHazard>().damage;
+                UpdateHealth(-damage);
             }
         }
 

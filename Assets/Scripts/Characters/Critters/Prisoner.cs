@@ -79,7 +79,7 @@ namespace Characters
         private void OnCollisionEnter2D(Collision2D collision)
         {
             // Need to check for melee attack too, but can modify later.
-            if (behaviour == PrisonerBehaviour.Stuck && collision.transform.GetComponent<Bullet>()) 
+            if (behaviour == PrisonerBehaviour.Stuck && collision.transform.GetComponent<Munition>()) 
             {
                 Destroy(collision.gameObject); // TEMP
 
