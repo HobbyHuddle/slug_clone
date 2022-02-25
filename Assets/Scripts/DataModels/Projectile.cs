@@ -11,5 +11,6 @@ namespace DataModels
     [CreateAssetMenu(fileName = "New Projectile", menuName = "Game/Projectile", order = 0)]
     public class Projectile : Item
     {
+        public float damage;
     }
 }

@@ -9,6 +9,7 @@ namespace DataModels
     [CreateAssetMenu(fileName = "New Ranged Weapon", menuName = "Game/Gun", order = 0)]
     public class RangedWeapon : Item
     {
+        public GameObject ammoPrefab;
         public int projectileCount;
         public int maxProjectiles;
         public int reloadAmount = 4;
