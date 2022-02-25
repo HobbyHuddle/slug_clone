@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealthKit
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ee93e53bd49320247ba5326812d81e84, type: 3}
+  image: {fileID: 21300000, guid: ee93e53bd49320247ba5326812d81e84, type: 3}
   description: First aid for minor healing.
   itemType: 2
   healingPower: 10

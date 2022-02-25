@@ -63,5 +63,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo.Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 5364690066456491121, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}

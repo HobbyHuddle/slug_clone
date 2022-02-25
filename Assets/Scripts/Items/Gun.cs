@@ -109,8 +109,9 @@ namespace Items
         
         public void Shoot()
         {
-            var bullet = Instantiate(bulletPrefab, gunPoint.position, Quaternion.identity, projectileParent).GetComponent<Munition>();
+            var bullet = Instantiate(bulletPrefab, gunPoint.position, gunPoint.rotation, projectileParent).GetComponent<Munition>();
             var direction = character.localScale.x > 0 ? Vector2.right : Vector2.left;
+            bullet.GetComponent<SpriteRenderer>().flipX = direction.x < 0;
             bullet.rigidbody2d.AddRelativeForce(direction * firePower);
             PlaySfx();
         }

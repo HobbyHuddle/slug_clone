@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangedWeapon: {fileID: 11400000, guid: 39f0f91b9bd7f6841961c8de41af7fd1, type: 2}
-  bulletPrefab: {fileID: 5242373262241007670, guid: 3da8316d69aaf22419b1f899f677b8cb, type: 3}
+  bulletPrefab: {fileID: 7343561136998400267, guid: 921c1fd8c3c9ca34b88c657ca43ef471, type: 3}
   projectileParent: {fileID: 0}
   gunPoint: {fileID: 4648783671343118185}
   firePower: 2000
