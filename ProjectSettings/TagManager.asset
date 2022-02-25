@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Patrols
+    uniqueID: 4128799879
+    locked: 0

@@ -9,7 +9,7 @@ namespace Characters
 {
     [Serializable]
     public class PlayerDeathEvent : UnityEvent {}
-    
+
     public abstract class BaseCharacter : MonoBehaviour
     {
         public float health = 1;

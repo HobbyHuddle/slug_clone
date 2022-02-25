@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278c3e610e77449dbe17c1a6ec36aa27, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 69854081c6c7c734c9b72d4ae34655e2, type: 3}
+  icon: {fileID: -4116472436186856142, guid: 3edbd1145e5209f46baed32efae67442, type: 3}
+  image: {fileID: 2674928451646028377, guid: 3edbd1145e5209f46baed32efae67442, type: 3}
   description: A strong blast works fast.
   itemType: 1
+  ammoPrefab: {fileID: 1970700299913079507, guid: d5a414684b611244d922171d8197ae97, type: 3}
   projectileCount: 4
   maxProjectiles: 12
   reloadAmount: 4

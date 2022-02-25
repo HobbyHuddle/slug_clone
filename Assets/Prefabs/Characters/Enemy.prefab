@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9121254429277006250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3650047757375701562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6426090708207892033}
   - component: {fileID: 3665028931123531108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Patrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,6 +539,7 @@ MonoBehaviour:
   aggroRange: 9
   attackRange: 9
   attackOffset: {x: -1, y: 0, z: 0}
+  corpseTimer: 0.5
   isHostile: 1
   isPatrolling: 1
 --- !u!1 &6236839076884591289
@@ -626,7 +627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8068242288909066512}
   - component: {fileID: 3784391974106921220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

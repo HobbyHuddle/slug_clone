@@ -9,6 +9,7 @@ namespace Shared
     public abstract class Item : ScriptableObject
     {
         public Sprite icon;
+        public Sprite image;
         public string description;
         public ItemType itemType;
     }

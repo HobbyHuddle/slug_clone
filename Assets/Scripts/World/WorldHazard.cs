@@ -8,6 +8,7 @@ namespace World
     public class WorldHazard : MonoBehaviour
     {
         public DamageType damageType;
+        public float damage;
 
         private void OnTriggerEnter2D(Collider2D col)
         {

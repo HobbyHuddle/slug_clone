@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278c3e610e77449dbe17c1a6ec36aa27, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: c27dad628a4caf545ac3d31c51f87d94, type: 3}
+  icon: {fileID: -8482392488870042154, guid: 3edbd1145e5209f46baed32efae67442, type: 3}
+  image: {fileID: 21300000, guid: dea5d082125e55e4489f62bac8da3c9c, type: 3}
   description: A sharpshooters fallback of choice.
   itemType: 1
+  ammoPrefab: {fileID: 7343561136998400267, guid: 921c1fd8c3c9ca34b88c657ca43ef471, type: 3}
   projectileCount: 0
   maxProjectiles: 10
   reloadAmount: 4

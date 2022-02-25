@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2129204869877193353, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220831153117606507, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688191136842240631, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4648783671343118185, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.67
@@ -15,6 +27,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: delay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: fireRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856715636894539804, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7283653653335987299, guid: ebafe6728c1647c44989f4f2ee4542d2, type: 3}
     - target: {fileID: 6236839076431362697, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_Name
       value: Prowler
@@ -63,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6236839076431362740, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6236839076884591291, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_Size.x
       value: 1.4099731
@@ -74,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 6848805006449976912, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_Name
       value: Variant.Prowler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848805006449976912, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8068242288909066512, guid: 0309dc620eb81de4c931a399ac436933, type: 3}
       propertyPath: m_RootOrder
