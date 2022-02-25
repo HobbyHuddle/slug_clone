@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using DataModels;
+using Shared;
 using UnityEngine;
 
 namespace Items
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IProjectile
     {
         [Header("Bullet")]
         public Projectile bullet;
@@ -16,16 +17,19 @@ namespace Items
         public LayerMask targetLayers;
         
         private Vector2 CurrentDirection => rigidbody2d.velocity.x > 0 ? transform.right : -transform.right;
+        private SpriteRenderer spriteRenderer;
         
         private void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = bullet.icon;
             StartCoroutine(DestroyBullet());
         }
 
-        private void Update()
+        public Projectile GetProjectile()
         {
-            // DestroyOnHit();
+            return bullet;
         }
 
         private IEnumerator DestroyBullet()
