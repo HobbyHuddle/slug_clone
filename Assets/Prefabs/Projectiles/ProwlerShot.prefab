@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb7cc8aa2af4e37bf630c217da99a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 11400000, guid: 5266adc3d5ca355449183e5c31b550f7, type: 2}
+  projectile: {fileID: 11400000, guid: 402e7e53d24ea7b4db4800beaedbba86, type: 2}
   rigidbody2d: {fileID: 2931479398319640408}
-  bulletLifetime: 2
+  projectileLifetime: 2
   collisionOffset: 1
   targetLayers:
     serializedVersion: 2
