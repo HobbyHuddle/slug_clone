@@ -20,7 +20,7 @@ namespace Items
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = item.icon;
+            spriteRenderer.sprite = item.image;
             sfx = GetComponent<AudioSource>();
         }
 
